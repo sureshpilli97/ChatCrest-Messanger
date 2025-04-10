@@ -21,7 +21,6 @@ const Chats = () => {
       [...chats].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
     const handleChatParticipants = (chatList) => {
-      // console.log("Chat participants received:", chatList.privateChats);
       setPrivateChats(sortChats(chatList.privateChats));
     };
 

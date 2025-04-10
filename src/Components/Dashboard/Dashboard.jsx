@@ -71,6 +71,7 @@ export default function Dashboard() {
     "/groups",
     "/create-chat",
     "/create-group",
+    "/update-profile",
   ].includes(location.pathname);
 
   return (
@@ -104,15 +105,14 @@ export default function Dashboard() {
               <MenuItem
                 onClick={() => {
                   handleMenuClose();
-                  navigate("/profile");
+                  navigate("/update-profile");
                 }}
               >
-                Profile
+                Update Profile
               </MenuItem>
               <MenuItem
                 onClick={() => {
                   handleMenuClose();
-                  navigate("/about");
                 }}
               >
                 About Us

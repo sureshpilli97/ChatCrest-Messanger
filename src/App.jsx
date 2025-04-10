@@ -8,12 +8,13 @@ import LogIn from "./Components/LogIn/LogIn";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import CreateChat from "./Components/CreateChat/CreateChat";
-import { SocketProvider } from "./Context/SocketContext"; // Import Socket Provider
+import { SocketProvider } from "./Context/SocketContext";
 import ChatScreen from "./Components/ChatScreen/ChatScreen";
 import Chats from "./Components/Chats/Chats";
 import CreateGroupChat from "./Components/CreateGroupChat/CreateGroupChat";
 import GroupChats from "./Components/GroupChats/GroupChats";
 import GroupChatScreen from "./Components/GroupChatScreen/GroupChatScreen";
+import ProfileUpdate from "./Components/ProfileUpdate/ProfileUpdate";
 
 export const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
@@ -90,18 +91,10 @@ function App() {
               path="/signup"
               element={user ? <Navigate to="/chats" /> : <CreateUser />}
             />
-            {/* <Route
-              path="/dashboard"
-              element={<ProtectedRoute element={<Dashboard />} />}
-            />
             <Route
-              path="/create-chat"
-              element={<ProtectedRoute element={<CreateChat />} />}
+              path="*"
+              element={<ProtectedRoute element={<div>404 Not Found</div>} />}
             />
-            <Route
-              path="chat/:chatId"
-              element={<ProtectedRoute element={<ChatScreen />} />}
-            /> */}
             <Route path="/" element={<Dashboard />}>
               <Route
                 path="chats"
@@ -126,6 +119,10 @@ function App() {
               <Route
                 path="groups/:chatId/:groupName"
                 element={<ProtectedRoute element={<GroupChatScreen />} />}
+              />
+              <Route
+                path="update-profile/"
+                element={<ProtectedRoute element={<ProfileUpdate />} />}
               />
             </Route>
           </Routes>
